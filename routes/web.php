@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ContatoController;
+use App\Http\Controllers\SobreNosController;
+use App\Http\Controllers\PrincipalController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +16,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
-});
+});*/
+
+Route::get('/', [PrincipalController::class, 'principal']);//->name('gestao.index');
+Route::get('/sobre-nos', [SobreNosController::class, 'sobreNos']);//->name('gestao.index');
+
+Route::get('/contato', [ContatoController::class, 'contato']);//->name('gestao.index');
